@@ -25,9 +25,9 @@ function solution(board, moves) {
                 break;
             }
         }
-        console.log('현재 panglist는 ' , panglist)
+        
     }
     return count;
 }
-
+//풀었당. push는 리스트 오른쪽 끝에 추가되는거다. 그리고 break 위치를 신경 쓰자
 console.log(solution([[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]] , [1,5,3,5,1,2,1,4] ))
