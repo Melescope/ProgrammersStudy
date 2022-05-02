@@ -1,62 +1,92 @@
 function solution(new_id) {
-    id = new_id
-    console.log('원본 ', id);
+  id = new_id;
 
-    id = id.toLowerCase();
-    console.log('대문자를 소문자로 바꾸기' , id);
+  id = id.toLowerCase();
 
-    id = id.replace(/[^a-z0-9-_.]/g , '' )  
-    console.log('특수문자 삭제하기 ' , id);
-////////////////////////////////////////////////////////// 밑에 꺼가 안됨!
-    id.replace(/.{2,}/g, '.');
-    console.log('...처럼 연속된 마침표를 한 개의 .으로 합치기' , id);
-////////////////////////////////////////////////////////// 위에 꺼가 안됨!!
-    if (id[0] === '.') {
-        id=id.replace(id[0],'');
-    }
-    console.log('첫 글자가 .이면 없애기',id);
+  id = id.replace(/[^a-z0-9-_.]/g, "");
 
-    console.log(id[id.length -1])
-    if (id[id.length -1] === '.') {
-        id = id.slice(0,id.length -2);
-    }
-    console.log('마지막 글자가 .이면 없애기',id);
+  while (id.includes("..")) {
+    id = id.replace(/\.{2,}/, ".");
+  }
 
-    if (id === ''){
-        id = 'a';
-    }
-    console.log('공백이면 a만 남기기' , id);
+  if (id[0] === ".") {
+    id = id.replace(id[0], "");
+    //console.log("첫 . 삭제", id);
+  }
 
-    if (id.length >= 16){
-        id = id.slice(0,15);
-    }
-    console.log('16자 이상이면 넘어간 부분은 짤라버리기',id);
+  if (id[id.length - 1] === ".") {
+    id = id.slice(0, id.length - 2);
+    console.log("마지막 . 없애기", id);
+  }
 
-    if (id[id.length -1] === '.') {
-        id = id.slice(0,id.length -2);
-    }
-    console.log('마지막 글자가 . 이면 자르기',id);
+  if (id === "") {
+    id = "a";
+  }
 
-    if (id.length === 2 ) {
-        id += id[1];
-    }
-    console.log('2글자라면 2번째 글자를 3번째 글자로 복붙하기',id);
+  if (id.length >= 16) {
+    console.log(
+      "15글자로 줄이기 전",
+      id[0],
+      id[1],
+      id[2],
+      id[3],
+      id[4],
+      id[5],
+      id[6],
+      id[7],
+      id[8],
+      id[9],
+      id[10],
+      id[11],
+      id[12],
+      id[13],
+      id[14],
+      id[15]
+    );
+    id = id.slice(0, 14);
+    // 위에 이거 15글자만 남기는거 아님?? 왜 14글자만 남길까??
+    console.log(
+      "15글자로 줄이기",
+      id[0],
+      id[1],
+      id[2],
+      id[3],
+      id[4],
+      id[5],
+      id[6],
+      id[7],
+      id[8],
+      id[9],
+      id[10],
+      id[11],
+      id[12],
+      id[13],
+      id[14],
+      id[15]
+    );
+  }
 
-    if (id.length === 1 ) {
-        id += id[0];
-        id += id[0];
-    }
-    console.log('1글자라면 그 글자를 복붙해서 3글자 맞추기' ,id);
+  if (id[id.length - 1] === ".") {
+    id = id.slice(0, id.length - 2);
+    console.log("마지막 . 없애기2", id);
+  }
 
-    return id;
-    }
-    
-    
+  if (id.length === 2) {
+    id += id[1];
+  }
 
+  if (id.length === 1) {
+    id += id[0];
+    id += id[0];
+  }
 
-console.log('The solution answer is : ' , solution("...!@BaT#*..y.abcde.fghijklm."))
-console.log('The correct answer is : bat.y.abcdefghi')
+  return id;
+}
 
-id = 'abcdefg';
-console.log(id[id.length -1]);
-console.log(id[-1]);
+console.log(
+  "The solution answer is : ",
+  solution("...!@BaT#*..y.abcdefghijklm")
+);
+console.log("The correct answer is : bat.y.abcdefghi");
+console.log("The solution answer is : ", solution("abcdefghijklmn.p"));
+console.log("The correct answer is : abcdefghijklmn");
