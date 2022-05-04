@@ -1,0 +1,35 @@
+// 로또의 최대 등수랑 최소 등수를 리턴하는 함수 만들기
+// 각 원소에 대해 list에 있는지 판별하는 함수가 필요 (파이썬의  in 같은)
+// list.includes(원소,검색 시작할 인덱스) == true or false
+
+function solution(lottos, win_nums) {
+    zero = 0; //0의 갯수
+    correct =0; //이미 맞은 개수
+    fail = 0; //이미 틀린 개수
+    for (i of lottos){
+        if ( i === 0){
+            zero += 1
+        } else if (win_nums.includes(i)){
+            correct += 1
+        } else if (!win_nums.includes(i)){
+            fail += 1
+        }
+    }
+    maxl = correct + zero;
+    minl = correct ;
+    maxrank = 7 - maxl;
+    minrank = 7 - minl;
+    if (minrank === 7){
+        minrank = 6
+    }
+    if (maxrank === 7){
+        maxrank = 6
+    }
+    var answer = [maxrank , minrank];
+    
+    return answer;
+}
+win = [1,2,3,4,5,6];
+my = [7,8,9,10,11,12];
+console.log(solution(win,my));
+// 맞았당!
