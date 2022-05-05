@@ -1,10 +1,5 @@
 // 2022-05-04 맨 끝 문제
-process.stdin.setEncoding("utf8");
-process.stdin.on("data", (data) => {
-  const n = data.split(" ");
-  const a = Number(n[0]),
-    b = Number(n[1]);
-
+function solve(a, b) {
   let line = "";
   for (i = 0; i < a; i++) {
     line += "*";
@@ -12,6 +7,7 @@ process.stdin.on("data", (data) => {
   for (i = 0; i < b; i++) {
     console.log(line);
   }
-});
-
+  return "";
+}
+console.log(solve(5, 4));
 // 쉬움 끝
