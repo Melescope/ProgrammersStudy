@@ -9,7 +9,11 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\scr\\30-67256\\main.js"
+<<<<<<< HEAD
+      "program": "${workspaceFolder}\\src\\30-67256\\main.js"
+=======
+      "program": "${workspaceFolder}\\30-12969\\main.js"
+>>>>>>> cfbd28b14fa5d45d9fb440fe1986e59dbd60b62b
     }
   ]
 }
