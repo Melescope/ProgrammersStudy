@@ -9,5 +9,6 @@ function solve(a, b) {
   }
   return "";
 }
-console.log(solve(5, 4));
+
+module.exports = { solve };
 // 쉬움 끝
