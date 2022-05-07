@@ -12,3 +12,4 @@ function solution(arr1, arr2) {
 module.exports = { solution };
 console.log(solution([[1], [2]], [[3], [4]]));
 //왜 결과가 arr1 이런 식으로 되는거냐
+// vscode특징이구나... 풀었다.
