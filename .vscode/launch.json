@@ -9,7 +9,15 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}\\src\\30-12947\\main.js"
+      "program": "${workspaceFolder}\\src\\30-42586\\main.js"
     }
+        {
+          "name": "Python: Current File",
+          "type": "python",
+          "request": "launch",
+          "program": "${file}",
+          "console": "integratedTerminal",
+          "justMyCode": true
+        }
   ]
 }

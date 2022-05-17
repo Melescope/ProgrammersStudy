@@ -8,4 +8,5 @@ function solution(arr) {
   return sum / n;
 }
 module.exports = { solution };
-// for문 range를 신경 씁시다.
+
+// easy
