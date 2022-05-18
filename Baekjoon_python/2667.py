@@ -28,10 +28,10 @@ for i in range(N):
     map.append(list(input()))
 
 
-def findzip(y,x,N):
-    cnt = 0
+def findzip(map,y,x,N,cnt):
     dx = [1,-1,0,0]
     dy = [0,0,1,-1]
+
     if map[y][x] == 1:
         map[y][x] = 0
         cnt += 1
@@ -40,12 +40,15 @@ def findzip(y,x,N):
         nx = x + dx[i]
         ny = y + dy[i]
         if (0 <= nx < N) and (0 <= ny < N) : 
-            findzip(nx,ny,N)
+            findzip(map,ny,nx,N,cnt)
             
 for y in map:
     for x in y:
         if x == '1':
-            imsilist = []
-            findzip(map , map.index(y) , y.index(x) , imsilist )
-            ans.append(len(imsilist))
+            cnt = 0
+            findzip(map , map.index(y) , y.index(x) ,N, cnt )
+            ans.append(cnt)
 print(ans)
+
+#RecursionError: maximum recursion depth exceeded in comparison
+# 이게 뭐임
