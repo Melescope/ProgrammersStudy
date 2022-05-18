@@ -32,13 +32,14 @@ def findzip(map,y,x,N,cnt):
     dx = [1,-1,0,0]
     dy = [0,0,1,-1]
 
-    if map[y][x] == 1:
-        map[y][x] = 0
-        cnt += 1
+    if map[y][x] == '1':
+        map[y][x] = '0'
+        cnt = int(cnt) + 1
+        return cnt
 
     for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
+        nx = int(x) + dx[i]
+        ny = int(y) + dy[i]
         if (0 <= nx < N) and (0 <= ny < N) : 
             findzip(map,ny,nx,N,cnt)
             
@@ -46,8 +47,8 @@ for y in map:
     for x in y:
         if x == '1':
             cnt = 0
-            findzip(map , map.index(y) , y.index(x) ,N, cnt )
-            ans.append(cnt)
+            a = findzip(map , map.index(y) , y.index(x) ,N, cnt )
+            ans.append(a)
 print(ans)
 
 #RecursionError: maximum recursion depth exceeded in comparison
